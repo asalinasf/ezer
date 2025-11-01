@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import type { Metadata } from 'next'
 
 function AbilitiesSection() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -53,7 +53,7 @@ function AbilitiesSection() {
               <div className="@container relative min-h-120 w-full grow max-lg:mx-auto max-lg:max-w-sm">
                 <div className="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 outline outline-white/20">
                   <video className="w-full h-full object-cover object-top" autoPlay loop muted>
-                    <source src="/videos/Videoapp.mp4" type="video/mp4" />  
+                    <source src="/videos/Videoapp.mp4" type="video/mp4" />
                   </video>
                 </div>
               </div>
@@ -66,7 +66,7 @@ function AbilitiesSection() {
               <div className="px-8 pt-8 sm:px-10 sm:pt-10">
                 <p className="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center">Performance</p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-400 max-lg:text-center">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit maiores impedit.
+                  I develop apps with Next.js with good performance.
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
@@ -85,7 +85,7 @@ function AbilitiesSection() {
               <div className="px-8 pt-8 sm:px-10 sm:pt-10">
                 <p className="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center">Security</p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-400 max-lg:text-center">
-                  Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi.
+                  I build secure websites, protecting user data and preventing vulnerabilities for safe and reliable web experiences.
                 </p>
               </div>
               <div className="@container flex flex-1 items-center max-lg:py-6 lg:pb-2">
@@ -102,9 +102,11 @@ function AbilitiesSection() {
             <div className="absolute inset-px rounded-lg bg-gray-900 max-lg:rounded-b-4xl lg:rounded-r-4xl opacity-30" />
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
               <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
-                <p className="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center">Powerful APIs</p>
+                <p className="mt-2 text-lg font-medium tracking-tight text-white max-lg:text-center">
+                  SEO
+                </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-gray-400 max-lg:text-center">
-                  Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget sem sodales gravida.
+                  I create high-performance websites using Next.js, delivering fast, scalable, and modern web experiences that enhance user engagement and business growth.
                 </p>
               </div>
               <div className="relative min-h-120 w-full grow">
@@ -117,7 +119,31 @@ function AbilitiesSection() {
                       <div className="border-r border-gray-600/10 px-4 py-2">App.jsx</div>
                     </div>
                   </div>
-                  <div className="px-6 pt-6 pb-14">{/* Your code example */}</div>
+                  <div className="px-6 pt-6 pb-14">
+                    <code>
+                      <span className="text-blue-300">
+                        import{" "}
+                      </span>
+                      <span className="text-purple-400">
+                        type {" "}
+                      </span>
+                      <span className="text-blue-500">
+                        &#123; {" "}
+                      </span>
+                      <span className="text-blue-300">
+                        Metadata {" "}
+                      </span>
+                      <span className="text-blue-500">
+                        &#125; {" "}
+                      </span>
+                      <span className="text-blue-300">
+                        from {" "}
+                      </span>
+                      <span className="text-green-400">
+                        'next'
+                      </span>
+                      </code>
+                  </div>
                 </div>
               </div>
 
