@@ -1,6 +1,5 @@
 'use client'
 import NavBar from "./components/NavBar"
-
 import Hero from "./components/Hero"
 import Skills from "./components/Skills"
 import AbilitiesSection from "./components/AbilitiesSection"
@@ -22,3 +21,4 @@ export default function Home() {
     </div>
   )
 }
+

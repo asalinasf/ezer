@@ -114,7 +114,7 @@ function AbilitiesSection() {
                   <div className="flex bg-gray-900 outline outline-white/5">
                     <div className="-mb-px flex text-sm/6 font-medium text-gray-400">
                       <div className="border-r border-b border-r-white/10 border-b-white/20 bg-white/5 px-4 py-2 text-white">
-                        NotificationSetting.jsx
+                        layout.jsx
                       </div>
                       <div className="border-r border-gray-600/10 px-4 py-2">App.jsx</div>
                     </div>
@@ -140,9 +140,88 @@ function AbilitiesSection() {
                         from {" "}
                       </span>
                       <span className="text-green-400">
-                        'next'
+                        &apos;next&apos;
                       </span>
-                      </code>
+                      <br />
+                      <br />
+                      <span className="text-blue-300">
+                        export {""}
+                      </span>
+                      <span className="text-purple-400">
+                        const {""}
+                      </span>
+                      <span className="text-purple-300">
+                        metadata
+                      </span>
+                      <span className="text-blue-300">
+                        :{" "}
+                      </span>
+                      <span className="text-white">
+                        Metadata{" "}
+                      </span>
+                      <span className="text-blue-300">
+                        = {" "}
+                      </span>
+                      <span className="text-blue-500">
+                        &nbsp;&nbsp;&nbsp;&nbsp; &#123; {" "}
+                      </span>
+                      <br />
+                      <span className="text-green-300">
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; title
+                      </span>
+                      <span className="text-blue-300">
+                        :{" "}
+                      </span>
+                      <span className="text-blue-300">
+                        &quot;
+                      </span>
+                      <span className="text-green-200">
+                        My blog
+                      </span>
+                      <span className="text-blue-300">
+                        &quot;
+                      </span>
+                      <span className="text-white">
+                        ,
+                      </span>
+                      <br />
+                      <span className="text-green-300">
+                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; description
+                      </span>
+                      <span className="text-blue-300">
+                        :{" "}
+                      </span>
+                      <span className="text-blue-300">
+                        &quot;
+                      </span>
+                      <span className="text-green-200">
+                        ....
+                      </span>
+                      <span className="text-blue-300">
+                        &quot;
+                      </span>
+                      <span className="text-white">
+                        ,
+                      </span>
+                      <br />
+                      <span className="text-blue-500">
+                        &nbsp;&nbsp;&nbsp;&nbsp; &#125; {" "}
+                      </span>
+                      <br />
+                      <br />
+                      <span className="text-blue-300">
+                        export default{" "}
+                      </span>
+                      <span className="text-purple-400">
+                        function{" "}
+                      </span>
+                      <span className="text-blue-400">
+                        Layout()
+                      </span>
+                      <span className="text-blue-400">
+                        &#123; &#125; 
+                      </span>
+                    </code>
                   </div>
                 </div>
               </div>
