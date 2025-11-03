@@ -2,7 +2,7 @@ import React from 'react'
 import TextType from './typingtext';
 
 interface Props {
-  text: string
+  text: string[]
 }
 
 const TypingTextAnimation:React.FC<Props> = ({text}) => {
