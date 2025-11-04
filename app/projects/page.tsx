@@ -2,11 +2,12 @@
 import GradientDecorationBg from "../components/GradientDecorationBg"
 import GradientDecorationBgDown from "../components/GradientDecorationBgDown"
 import Image from "next/image"
+import LightRays from "../components/animations/bg/LightRays"
+import Shuffle from "../components/animations/text/Shuffle"
 
 import imageProject1 from "./../img/project1.png"
 import imageProject2 from "./../img/project2.png"
 import imageProject3 from "./../img/project3.png"
-
 
 const projectsPortfolio = [
   {
@@ -44,16 +45,41 @@ const projectsPortfolio = [
 export default function projects() {
   return (
     <div className="relative py-24 sm:py-32">
+      <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays top-[-8rem]"
+        />
+      </div>
+
       <GradientDecorationBg />
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-20">
+        <div className="flex flex-col w-full mx-auto max-w-2xl items-center justify-center">
+          <Shuffle
+            text="Projects"
+            shuffleDirection="right"
+            className="font-pressStart !text-3xl sm:!text-4xl md:!text-5xl lg:!text-7xl xl:!text-8xl"
+            duration={0.5}
+            animationMode="evenodd"
+            shuffleTimes={1}
+            ease="power3.out"
+            stagger={0.03}
+            threshold={0.1}
+            triggerOnce={true}
+            triggerOnHover={true}
+            respectReducedMotion={true}
+          />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
 
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
-            Projects
-          </h2>
-
-          <p className="mt-2 text-lg/8 text-gray-300">
+          <p className="mt-2 text-lg/8 text-gray-300" >
             Check my latest personal projects
           </p>
         </div>

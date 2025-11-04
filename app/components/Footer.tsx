@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaGithub, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaGithub } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
 import Link from "next/link";
 
@@ -21,10 +21,9 @@ const Footer = () => {
 
         {/* Social Icons */}
         <div className="flex space-x-6 justify-center md:justify-end">
-          <a href="#" className="hover:text-white transition-colors"><FaInstagram /></a>
-          <a href="#" className="hover:text-white transition-colors"><AiOutlineTwitter /></a>
-          <a href="#" className="hover:text-white transition-colors"><FaGithub /></a>
-          <a href="#" className="hover:text-white transition-colors"><FaYoutube /></a>
+          <a href="https://www.instagram.com/ezer_fr/" className="hover:text-white transition-colors"><FaInstagram /></a>
+          <a href="https://x.com/ezer_fr" className="hover:text-white transition-colors"><AiOutlineTwitter /></a>
+          <a href="https://github.com/ezerfrlux" className="hover:text-white transition-colors"><FaGithub /></a>
         </div>
       </div>
 
