@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, JSX, forwardRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
@@ -32,7 +32,7 @@ export interface ShuffleProps {
   triggerOnHover?: boolean;
 }
 
-const Shuffle: React.FC<ShuffleProps> = ({
+const Shuffle = forwardRef<HTMLElement, ShuffleProps>(({
   text,
   className = '',
   style = {},
@@ -56,8 +56,8 @@ const Shuffle: React.FC<ShuffleProps> = ({
   triggerOnce = true,
   respectReducedMotion = true,
   triggerOnHover = true
-}) => {
-  const ref = useRef<HTMLElement>(null);
+}, ref) => {
+  const internalRef = useRef<HTMLElement>(null);
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -66,6 +66,18 @@ const Shuffle: React.FC<ShuffleProps> = ({
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const playingRef = useRef(false);
   const hoverHandlerRef = useRef<((e: Event) => void) | null>(null);
+
+  // Combinar ref interna con ref externa
+  const combinedRef = (node: HTMLElement | null) => {
+    internalRef.current = node;
+    
+    // Manejar ref externa
+    if (typeof ref === 'function') {
+      ref(node);
+    } else if (ref && 'current' in ref) {
+      (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+    }
+  };
 
   useEffect(() => {
     if ('fonts' in document) {
@@ -76,13 +88,14 @@ const Shuffle: React.FC<ShuffleProps> = ({
 
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded) return;
+      // Usar internalRef en lugar de ref directa
+      if (!internalRef.current || !text || !fontsLoaded) return;
       if (respectReducedMotion && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         onShuffleComplete?.();
         return;
       }
 
-      const el = ref.current as HTMLElement;
+      const el = internalRef.current as HTMLElement;
 
       const startPct = (1 - threshold) * 100;
       const mm = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin || '');
@@ -92,8 +105,8 @@ const Shuffle: React.FC<ShuffleProps> = ({
       const start = `top ${startPct}%${sign}`;
 
       const removeHover = () => {
-        if (hoverHandlerRef.current && ref.current) {
-          ref.current.removeEventListener('mouseenter', hoverHandlerRef.current);
+        if (hoverHandlerRef.current && internalRef.current) {
+          internalRef.current.removeEventListener('mouseenter', hoverHandlerRef.current);
           hoverHandlerRef.current = null;
         }
       };
@@ -288,7 +301,7 @@ const Shuffle: React.FC<ShuffleProps> = ({
       };
 
       const armHover = () => {
-        if (!triggerOnHover || !ref.current) return;
+        if (!triggerOnHover || !internalRef.current) return;
         removeHover();
         const handler = () => {
           if (playingRef.current) return;
@@ -297,7 +310,7 @@ const Shuffle: React.FC<ShuffleProps> = ({
           play();
         };
         hoverHandlerRef.current = handler;
-        ref.current.addEventListener('mouseenter', handler);
+        internalRef.current.addEventListener('mouseenter', handler);
       };
 
       const create = () => {
@@ -344,7 +357,7 @@ const Shuffle: React.FC<ShuffleProps> = ({
         respectReducedMotion,
         triggerOnHover
       ],
-      scope: ref
+      scope: internalRef
     }
   );
 
@@ -358,7 +371,9 @@ const Shuffle: React.FC<ShuffleProps> = ({
   const classes = `${baseTw} ${ready ? 'visible' : 'invisible'} ${className}`.trim();
   const Tag = (tag || 'p') as keyof JSX.IntrinsicElements;
 
-  return React.createElement(Tag, { ref: ref as any, className: classes, style: commonStyle }, text);
-};
+  return React.createElement(Tag, { ref: combinedRef, className: classes, style: commonStyle }, text);
+});
+
+Shuffle.displayName = 'Shuffle';
 
 export default Shuffle;
