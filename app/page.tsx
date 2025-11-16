@@ -5,7 +5,6 @@ import AbilitiesSection from "./components/AbilitiesSection"
 import GrayLine from "./components/GrayLine"
 import BallpitComoponent from './components/animations/balls/BallpitComoponent';
 import { useState, useEffect } from "react";
-import { log } from "console";
 
 
 export default function Home() {

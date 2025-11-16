@@ -8,9 +8,14 @@ import Link from 'next/link';
 import SplitTextComponent from './animations/text/SplitTextComponent';
 import { useMemo } from 'react';
 import TypingTextAnimation from './animations/text/TypingTextAnimation';
+
+import useApi from '../hooks/useApi';
+
+
 const Hero = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
-
+  const {data} = useApi({url:"/home-page"})
+  console.log(data)
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY });
@@ -29,8 +34,7 @@ const Hero = () => {
         <div className="flex w-full relative lg:pr-20">
           <div className="text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">
-              <TypingTextAnimation text={["Frontend Developer Specializing in"]} />
-
+              <TypingTextAnimation text={[`${data?.data.Title}`]} />
               <span className="text-blue-500">React</span>
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
